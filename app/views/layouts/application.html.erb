@@ -28,6 +28,12 @@
                 <% end %>
               </li>
               <li>
+                <%= link_to books_path, class: "nav-link text-light font-weight-bold" do %>
+                  <i class="fas fa-book"></i>
+                  Books
+                <% end %>
+              </li>
+              <li>
                 <%= link_to destroy_user_session_path, class: "nav-link text-light font-weight-bold", method: :delete do %>
                   <i class="fas fa-sign-out-alt text-light"></i>
                   Log out
