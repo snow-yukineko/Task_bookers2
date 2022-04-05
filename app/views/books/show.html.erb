@@ -23,8 +23,11 @@
             <%= @book.body %>
           </td>
           <td>
+            <%= link_to "Edit", "/books/#{@book.id}/edit" %>
+          </td>
+          <td>
             <% if @book.user == current_user %>
-              <%= link_to "Destroy", book_path(@book), method: :delete %>
+              <%= link_to "Destroy", book_path(@book), method: :delete, class: 'btn btn-sm btn-danger' %>
             <% end %>
           </td>
         </tbody>
