@@ -1,5 +1,5 @@
 <h2>User info</h2>
-      <%= image_tag @user.get_profile_image(63,63), class: 'attachment user profile_image fallback' %>
+      <%= image_tag @user.get_profile_image(100,100), class: 'attachment user profile_image fallback' %>
       <table class="table">
         <tbody>
           <tr></tr>
@@ -14,8 +14,10 @@
         </tbody>
       </table>
       <div class="row">
-        <%= link_to "/users/#{@user.id}/edit", class: "btn btn-outline-secondary btn-block" do %>
-          <i class="fas fa-user-cog"></i>
+        <% if @user.id == current_user %>
+          <%= link_to "/users/#{@user.id}/edit", class: "btn btn-outline-secondary btn-block" do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
         <% end %>
       </div>
 

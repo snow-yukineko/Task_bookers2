@@ -9,25 +9,27 @@
       <table class="table">
         <tbody>
           <td>
-            <%= link_to user_path(@book.user.id) do %>
-              <%= image_tag @user.get_profile_image(40,40), class: 'attachment user profile_image fallback' %><br>
-              <%= @book.user.name %>
+            <%= link_to user_path(@book_id.user.id) do %>
+              <%= image_tag @user.get_profile_image(80,80), class: 'attachment user profile_image fallback' %><br>
+              <%= @book_id.user.name %>
             <% end %>
           </td>
           <td>
-            <%= link_to book_path(@book.id) do %>
-              <%= @book.title %>
+            <%= link_to book_path(@book_id.id) do %>
+              <%= @book_id.title %>
             <% end %>
           </td>
           <td>
-            <%= @book.body %>
+            <%= @book_id.body %>
           </td>
           <td>
-            <%= link_to "Edit", "/books/#{@book.id}/edit" %>
+            <% if @book_id.user == current_user %>
+              <%= link_to "Edit", "/books/#{@book_id.id}/edit", class: 'btn btn-sm btn-success edit_book_33' %>
+            <% end %>
           </td>
           <td>
-            <% if @book.user == current_user %>
-              <%= link_to "Destroy", book_path(@book), method: :delete, class: 'btn btn-sm btn-danger' %>
+            <% if @book_id.user == current_user %>
+              <%= link_to "Destroy", book_path(@book_id), method: :delete, class: 'btn btn-sm btn-danger' %>
             <% end %>
           </td>
         </tbody>
