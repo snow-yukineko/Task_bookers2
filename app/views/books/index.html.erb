@@ -21,7 +21,7 @@
             <tbody>
               <td>
                 <%= link_to user_path(book.user.id) do %>
-                  <%= image_tag @user.get_profile_image(80,80), class: 'attachment user profile_image fallback' %>
+                  <%= image_tag book.user.get_profile_image(80,80), class: 'attachment user profile_image fallback' %>
                 <% end %>
               </td>
               <td>

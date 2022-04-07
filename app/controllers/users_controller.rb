@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.profile_image.attach(params[:avatar]) if @user.profile_image.blank?
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "You have updated user successfully."
     else
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_imafe, :introduction)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
   def correct_user
